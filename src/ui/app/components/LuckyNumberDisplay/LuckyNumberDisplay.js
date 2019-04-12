@@ -12,14 +12,17 @@ class LuckyNumberDisplay extends React.PureComponent {
   render() {
     // TODO: Receive props passed down from LuckyNumber container
     // Latha
-    const toDisplay = this.props.values.username + this.props.values.LuckyNumberDisplay;
+    const { firstNm, lastNm, luckyNumber } = this.props;
     // const userLucky = this.props.
 
     return (
       <div className="mt5 pa4 center w-25 bg-light-gray">
         {/* TODO: Display the user's full name and their lucky number
           Latha */}
-          toDisplay
+        <p> Hello {lastNm}, {firstNm} ! </p>
+        <p> Your lucky number is </p>
+        <p>{luckyNumber}</p>
+
       </div>
     );
   }
@@ -27,6 +30,8 @@ class LuckyNumberDisplay extends React.PureComponent {
 
 // TODO: Add PropTypes
 LuckyNumberDisplay.propTypes = {
+  firstNm: PropTypes.string,
+  lastNm: PropTypes.string,
 
 };
 

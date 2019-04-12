@@ -16,11 +16,17 @@ const initialState = fromJS({
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case 'GET_LUCKY_NUMBER':
+    case DISPATCH_ACTIONS.GET_LUCKY_NUMBER:
       // TODO: Set things in the Redux store
       // Latha
-      console.log(action.value);
-      break;
+      return { ...state, luckyNumber };
+    case DISPATCH_ACTIONS.GET_LUCKY_NUMBER_SUCCESS:
+      const { luckyNumber } = action.response;
+      return { ...state, luckyNumber };
+
+    case DISPATCH_ACTIONS.ADD_USER_TO_STORE:
+      const { firstNm, lastNm } = action.payload;
+      return { ...state, firstNm, lastNm };
     default:
       return state;
   }

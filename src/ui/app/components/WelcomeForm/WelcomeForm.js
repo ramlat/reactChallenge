@@ -26,24 +26,28 @@ class WelcomeForm extends React.PureComponent {
       >
         {/* TODO: Add elements to form to collect user input
         Latha added 3 Field elements for each user input */ }
-        <Field
-          name="userName"
-          type={String}
-          component={RFTextField}
-          label="User name"
-        />
-        <Field
+        <div className="item right floated content" >
+          <Field
+            name="username"
+            type={String}
+            component={RFTextField}
+            label="User name"
+          />
+        </div>
+        <div className="item right floated content" > <Field
           name="firstNm"
           type={String}
           component={RFTextField}
           label="First name"
         />
-        <Field
+        </div>
+        <div className="item right floated content" ><Field
           name="lastNm"
           type={String}
           component={RFTextField}
           label="Last name"
         />
+        </div>
         <div className="center mt3">
           <Button variant="contained" color="primary" type="submit">
             Submit
@@ -63,8 +67,8 @@ WelcomeForm.propTypes = {
 // @see https://redux-form.com/7.4.2/docs/api/reduxform.md/
 const validate = (formValues) => {
   const errors = [];
-  if (!formValues.userName) {
-    errors.userName = 'You have to enter a vaslue for user name.';
+  if (!formValues.username) {
+    errors.username = 'You have to enter a vaslue for user name.';
   }
   if (!formValues.firstNm) {
     errors.firstNm = 'You have to enter a vaslue for first name.';

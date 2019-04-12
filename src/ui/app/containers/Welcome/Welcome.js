@@ -20,6 +20,7 @@ import WelcomeForm from 'components/WelcomeForm/WelcomeForm';
 import { CONTAINER_KEY } from '../constants';
 import saga from '../saga';
 import reducer from '../reducer';
+import { getLuckyNumber, addUserToStore } from '../actions';
 
 class Welcome extends React.PureComponent {
   constructor(props) {
@@ -34,13 +35,13 @@ class Welcome extends React.PureComponent {
    * @see https://redux-form.com/7.4.2/docs/gettingstarted.md/#step-4-of-4-reacting-to-submit
    * @param {*} values An immutable map of the Redux Form values
    */
-  submit(values) {
+  submit =(values) => {
     const { dispatch } = this.props;
-    const usernameVal = values.Welcome.username;
     // TODO: Get the form values and invoke the service layer
     // Latha modified
     //* ***** */
-    dispatch(usernameVal);
+    dispatch(addUserToStore(values.get('firstName'), values.get('lastName')));
+    dispatch(getLuckyNumber(values.get('userName')));
   }
 
   render() {
@@ -59,7 +60,7 @@ class Welcome extends React.PureComponent {
   }
 }
 
-Welcome. = {
+Welcome.propTypes = {
   dispatch: PropTypes.func.isRequired
 };
 

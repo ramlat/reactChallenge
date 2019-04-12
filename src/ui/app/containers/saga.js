@@ -15,22 +15,25 @@ import { push } from 'react-router-redux';
 import request from 'utils/request';
 
 import { DISPATCH_ACTIONS } from './constants';
+import { getLuckyNumber } from './actions';
 
 export function* getLuckyNumber({ username }) {
   // TODO: What port is the service layer running on again?
-  const requestUrl = 'http://localhost:1337/lucky-number';
+  const requestUrl = `http://localhost:1337/lucky-number?username=${username}`;
 
   try {
     const result = yield call(request, requestUrl);
 
     // TODO: Do stuff with the result
     // Latha added this yield ???
-    yield put((type:'GET_LUCKY_NUMBER', result));
+    yield put((type: DISPATCH_ACTIONS.GET_LUCKY_NUMBER_SUCCESS, response: result));
+    yield put(push('/lucky'));
   } catch (err) {
     // TODO: Bonus points for some error handling
   }
 }
 
-export default function* sagaFunction() {
+function* sagaFunction() {
   yield takeLatest(DISPATCH_ACTIONS.GET_LUCKY_NUMBER, getLuckyNumber);
 }
+export default sagaFunction;

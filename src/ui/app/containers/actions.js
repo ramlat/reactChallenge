@@ -9,8 +9,17 @@ import { DISPATCH_ACTIONS } from './constants';
 export function getLuckyNumber(username) {
   return {
     type: DISPATCH_ACTIONS.GET_LUCKY_NUMBER,
-    username
+    payload: username
   };
 }
 
 // TODO: Add more actions if needed
+export function addUserToStore(firstName, lastName) {
+  return {
+    type: DISPATCH_ACTIONS.ADD_USER_TO_STORE,
+    payload: {
+      firstName,
+      lastName
+    }
+  };
+}
