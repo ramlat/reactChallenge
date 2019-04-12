@@ -15,7 +15,6 @@ import { push } from 'react-router-redux';
 import request from 'utils/request';
 
 import { DISPATCH_ACTIONS } from './constants';
-import { getLuckyNumber } from './actions';
 
 export function* getLuckyNumber({ username }) {
   // TODO: What port is the service layer running on again?
