@@ -59,7 +59,7 @@ class Welcome extends React.PureComponent {
   }
 }
 
-Welcome.propTypes = {
+Welcome. = {
   dispatch: PropTypes.func.isRequired
 };
 
