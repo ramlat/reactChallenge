@@ -36,10 +36,11 @@ class Welcome extends React.PureComponent {
    */
   submit(values) {
     const { dispatch } = this.props;
-
+    const usernameVal = values.Welcome.username;
     // TODO: Get the form values and invoke the service layer
-
-    dispatch(???);
+    // Latha modified
+    //* ***** */
+    dispatch(usernameVal);
   }
 
   render() {
@@ -48,9 +49,10 @@ class Welcome extends React.PureComponent {
         <Helmet>
           <title>Welcome</title>
         </Helmet>
+        {/*  Latha touched the onSubmit */}
 
         <div className="mt5 pa4 center w-25 bg-light-gray">
-          <WelcomeForm onSubmit={???} />
+          <WelcomeForm onSubmit={this.submit} />
         </div>
       </article>
     );

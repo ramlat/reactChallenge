@@ -18,13 +18,31 @@ class WelcomeForm extends React.PureComponent {
   render() {
     const { handleSubmit } = this.props;
 
+
     return (
-      <form className="flex flex-column">
-        {/* TODO: Add elements to form to collect user input */}
+      <form
+        className="flex flex-column"
+        onSubmit={handleSubmit}
+      >
+        {/* TODO: Add elements to form to collect user input
+        Latha added 3 Field elements for each user input */ }
         <Field
-          name="???"
+          name="userName"
+          type={String}
           component={RFTextField}
-          label="???"
+          label="User name"
+        />
+        <Field
+          name="firstNm"
+          type={String}
+          component={RFTextField}
+          label="First name"
+        />
+        <Field
+          name="lastNm"
+          type={String}
+          component={RFTextField}
+          label="Last name"
         />
         <div className="center mt3">
           <Button variant="contained" color="primary" type="submit">
@@ -41,7 +59,24 @@ WelcomeForm.propTypes = {
 };
 
 // TODO: Add validation
+// Latha added validation rules for each field that needed to have a value/string
 // @see https://redux-form.com/7.4.2/docs/api/reduxform.md/
+const validate = (formValues) => {
+  const errors = [];
+  if (!formValues.userName) {
+    errors.userName = 'You have to enter a vaslue for user name.';
+  }
+  if (!formValues.firstNm) {
+    errors.firstNm = 'You have to enter a vaslue for first name.';
+  }
+  if (!formValues.lastNm) {
+    errors.lastNm = 'You have to enter a vaslue for last name.';
+  }
+
+  return errors;
+};
+
 export default reduxForm({
   form: 'welcome',
+  validate
 })(WelcomeForm);
