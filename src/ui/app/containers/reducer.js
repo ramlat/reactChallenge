@@ -19,14 +19,11 @@ function reducer(state = initialState, action) {
     case DISPATCH_ACTIONS.GET_LUCKY_NUMBER:
       // TODO: Set things in the Redux store
       // Latha
-      return { ...state, luckyNumber };
+      return { ...state };
     case DISPATCH_ACTIONS.GET_LUCKY_NUMBER_SUCCESS:
       const { luckyNumber } = action.response;
       return { ...state, luckyNumber };
 
-    case DISPATCH_ACTIONS.ADD_USER_TO_STORE:
-      const { firstNm, lastNm } = action.payload;
-      return { ...state, firstNm, lastNm };
     default:
       return state;
   }

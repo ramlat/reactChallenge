@@ -14,12 +14,12 @@ export function getLuckyNumber(username) {
 }
 
 // TODO: Add more actions if needed
-export function addUserToStore(firstName, lastName) {
+export function addUserToStore(firstNm, lastNm) {
   return {
     type: DISPATCH_ACTIONS.ADD_USER_TO_STORE,
     payload: {
-      firstName,
-      lastName
+      firstNm,
+      lastNm
     }
   };
 }
