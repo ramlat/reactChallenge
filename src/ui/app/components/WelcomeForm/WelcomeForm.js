@@ -29,21 +29,18 @@ class WelcomeForm extends React.PureComponent {
         <div className="item right floated content" >
           <Field
             name="username"
-            type={String}
             component={RFTextField}
             label="User name"
           />
         </div>
         <div className="item right floated content" > <Field
           name="firstNm"
-          type={String}
           component={RFTextField}
           label="First name"
         />
         </div>
         <div className="item right floated content" ><Field
           name="lastNm"
-          type={String}
           component={RFTextField}
           label="Last name"
         />
@@ -67,8 +64,8 @@ WelcomeForm.propTypes = {
 // @see https://redux-form.com/7.4.2/docs/api/reduxform.md/
 const validate = (formValues) => {
   const errors = [];
-  if (!formValues.username) {
-    errors.username = 'You have to enter a vaslue for user name.';
+  /**  if (!formValues.username) {
+    //errors.username = 'You have to enter a vaslue for user name.';
   }
   if (!formValues.firstNm) {
     errors.firstNm = 'You have to enter a vaslue for first name.';
@@ -76,7 +73,10 @@ const validate = (formValues) => {
   if (!formValues.lastNm) {
     errors.lastNm = 'You have to enter a vaslue for last name.';
   }
-
+*/
+  errors.username = !formValues.get('username');
+  errors.firstNm = !formValues.get('firstNm');
+  errors.lastNm = !formValues.get('lastNm');
   return errors;
 };
 

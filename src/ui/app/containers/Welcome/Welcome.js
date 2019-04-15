@@ -40,8 +40,13 @@ class Welcome extends React.PureComponent {
     // TODO: Get the form values and invoke the service layer
     // Latha modified
     //* ***** */
-    dispatch(addUserToStore(values.get('firstName'), values.get('lastName')));
-    dispatch(getLuckyNumber(values.get('userName')));
+    alert(`Values passed ${values.get('firstNm')} --- ${values.get('username')}`);
+    dispatch(addUserToStore(values.get('firstNm'), values.get('lastNm')));
+    dispatch(getLuckyNumber(values.get('username')));
+    alert(`After calling luckynumber ${values.get('firstNm')} --- ${values.get('username')}`);
+  }
+  checkme =() => {
+    alert('TESTING latha');
   }
 
   render() {

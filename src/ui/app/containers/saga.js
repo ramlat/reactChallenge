@@ -25,10 +25,11 @@ export function* getLuckyNumber({ username }) {
 
     // TODO: Do stuff with the result
     // Latha added this yield ???
-    yield put((type: DISPATCH_ACTIONS.GET_LUCKY_NUMBER_SUCCESS, response: result));
+    yield put({ type: DISPATCH_ACTIONS.GET_LUCKY_NUMBER_SUCCESS, response: result });
     yield put(push('/lucky'));
   } catch (err) {
     // TODO: Bonus points for some error handling
+    console.log(err);
   }
 }
 
